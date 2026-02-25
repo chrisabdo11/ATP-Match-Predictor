@@ -26,7 +26,7 @@ while True:
         break 
 while True:
     name_B = input("Enter the name of the second player : ").strip()
-    playerB = get_player_row(df_total, name_B)
+    player_B = get_player_row(df_total, name_B)
     
     if player_B is None:
         print("The second player is unfindable ! Try again.\n")
