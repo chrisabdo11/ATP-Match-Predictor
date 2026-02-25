@@ -34,17 +34,15 @@ def scrape_table_2(url: str) -> pd.DataFrame:
     data_dict = payload["x"]["tag"]["attribs"]["data"]
     df = pd.DataFrame(data_dict)
     cols_to_keep = [
-    "Player","Surface","Matches",
-    "Wins","Losses","WinPercentage","Titles",
-    "EloServe","EloReturn","PointsWonPercentage","GamesWonPercentage",
-    "SetsWonPercentage","DecSets","DecSetWins","DecSetWinPercentage",
-    "TieBreaks","TieBreaksWon","FirstServePercentage","FirstServeWonPercentage",
-    "SecondServeWonPercentage","ServicePointsWonPercentage","ServiceGamesWonPercentage",
-    "AcePercentage","DoubleFaultPercentage","FirstServeReturnPointsWonPercentage",
-    "SecondServeReturnPointsWonPercentage","AceAgainstPercentage","BreakPointsConvertedPercentage",
-]
+        "Player","Surface","Matches",
+        "Wins","Losses","WinPercentage","Titles",
+        "EloServe","EloReturn","PointsWonPercentage","GamesWonPercentage",
+        "SetsWonPercentage","DecSets","DecSetWins","DecSetWinPercentage",
+        "TieBreaks","TieBreaksWon","FirstServePercentage","FirstServeWonPercentage",
+        "SecondServeWonPercentage","ServicePointsWonPercentage","ServiceGamesWonPercentage",
+        "AcePercentage","DoubleFaultPercentage","FirstServeReturnPointsWonPercentage",
+        "SecondServeReturnPointsWonPercentage","AceAgainstPercentage","BreakPointsConvertedPercentage",
+    ]
     df = df[cols_to_keep]
     df["Player"] = df["Player"].apply(clean_name)
     return df
-
-
