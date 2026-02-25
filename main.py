@@ -1,13 +1,13 @@
 import pandas as pd 
-from scraper import scrape_table_1, scrape_table_2
+from scraper import scraping_site_1, scraping_site_2
 from functions import clean_name,get_player_row,filter_by_surface
 from player import Player
 from predictor import MatchPredictor
 
 url = "https://www.tennisabstract.com/reports/atp_elo_ratings.html"
-df1 = scrape_table_1(url)
+df1 = scraping_site_1(url)
 url_2 = "https://www.wheeloratings.com/tennis_atp_stats_last52.html"
-df2 = scrape_table_2(url_2)
+df2 = scraping_site_2(url_2)
 while True:
     surface = input ("Enter the type of tennis court :").strip().lower().capitalize()
     if surface not in ["Hard", "Clay", "Grass", "All"]:
