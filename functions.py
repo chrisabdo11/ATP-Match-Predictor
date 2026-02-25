@@ -2,9 +2,7 @@ import pandas as pd
 from bs4.filter import SoupStrainer 
 import re
 
-
-# This function is implemented to make sure the names are exact in both d\DataFrames
-
+# This function is implemented to make sure the names are exact in both DataFrames
 def clean_name(name: str) -> str:
     name = str(name).replace("Â", "").replace("\xa0", " ")
     name = name.lower().replace("-", " ")
