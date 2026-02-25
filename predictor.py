@@ -19,18 +19,17 @@ class MatchPredictor:
             return None
         return Player(row["Player"], row)
 
-    def predict_winner(self, nameA, nameB, surface):
-        playerA = self.get_player(nameA)
-        playerB = self.get_player(nameB)
-        if playerA is None or playerB is None:
+    def predict_winner(self, name_A, name_B, surface):
+        player_A = self.get_player(name_A)
+        player_B = self.get_player(name_B)
+        if player_A is None or player_B is None:
             return None
         elo_col = SURFACE_MAP.get(surface,"Elo")
-        eloA = float(playerA.get(elo_col))
-        eloB = float(playerB.get(elo_col))
+        eloA = float(player_A.get(elo_col))
+        eloB = float(player_B.get(elo_col))
         probA = 1 / (1 + 10 ** ((eloB - eloA) / 400))
         probB = 1 - probA
         return probA, probB
-    
 
     def power(self, name, surface):
         player = self.get_player(name)
@@ -61,9 +60,9 @@ class MatchPredictor:
         )
         return pwr
 
-    def win_set_odds(self, nameA, nameB, surface):
-        pA = self.power(nameA, surface)
-        pB = self.power(nameB, surface)
+    def win_set_odds(self, name_A, name_B, surface):
+        pA = self.power(name_A, surface)
+        pB = self.power(name_B, surface)
         if pA is None or pB is None:
             return None
         diff = pA - pB
