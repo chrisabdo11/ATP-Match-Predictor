@@ -66,4 +66,4 @@ class MatchPredictor:
         if pA is None or pB is None:
             return None
         diff = pA - pB
-        return 1 / (1 + math.exp(-diff))
+        return 1 / (1 + math.exp(-diff)) * 100
