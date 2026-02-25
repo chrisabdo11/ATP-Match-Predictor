@@ -3,8 +3,8 @@ import pandas as pd
 import requests, json
 from functions import clean_name
 
-
-def scrape_table_1(url: str) -> pd.DataFrame:
+# this function will allow the scraping of the first site
+def scraping_site_1(url: str) -> pd.DataFrame:
     headers = {"User-Agent": "Mozilla/5.0"}
     page = requests.get(url, headers = headers)
     soup = BeautifulSoup (page.text, "lxml")
@@ -25,7 +25,8 @@ def scrape_table_1(url: str) -> pd.DataFrame:
     df["Player"] = df["Player"].apply(clean_name)
     return df
 
-def scrape_table_2(url: str) -> pd.DataFrame:
+# this function will allow the scraping of the second site
+def scraping_site_2(url: str) -> pd.DataFrame:
     headers = {"User-Agent": "Mozilla/5.0"}
     page = requests.get(url,headers = headers)
     soup = BeautifulSoup(page.text,"lxml")
